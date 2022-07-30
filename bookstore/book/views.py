@@ -8,4 +8,10 @@ def shop(request, city, mobile):
     response['city'] = city
     response['mobile'] = mobile
     return response
-    # pass
+
+
+def set_session(request, name):
+    u_id = 1
+    request.session['u_id'] = u_id
+    request.session['username'] = name
+    return HttpResponse('Set session success.')

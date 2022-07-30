@@ -4,7 +4,7 @@ Author: wangxd
 Date: 2022/7/21
 """
 from django.urls import path
-from book.views import shop
+from book.views import shop, set_session
 from django.urls.converters import register_converter
 
 
@@ -23,5 +23,6 @@ register_converter(MobileConverter, 'phone')
 urlpatterns = [
     # <转换器名字:变量名>
     # 转换器会对变量数据进行正则校验
-    path('<int:city>/<phone:mobile>/', shop)
+    path('<int:city>/<phone:mobile>/', shop),
+    path('set_session/<name>/', set_session),
 ]
