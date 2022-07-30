@@ -4,7 +4,8 @@ Author: wangxd
 Date: 2022/7/21
 """
 from django.urls import path
-from book.views import shop, set_session
+from book.views import shop, set_session, set_cookie, get_cookie
+from book.views import OrderView
 from django.urls.converters import register_converter
 
 
@@ -25,4 +26,7 @@ urlpatterns = [
     # 转换器会对变量数据进行正则校验
     path('<int:city>/<phone:mobile>/', shop),
     path('set_session/<name>/', set_session),
+    path('set_cookie/<name>/', set_cookie),
+    path('get_cookie/', get_cookie),
+    path('order/', OrderView.as_view()),
 ]
